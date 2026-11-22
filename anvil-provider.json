@@ -1,0 +1,32 @@
+{
+  "$schema": "https://raw.githubusercontent.com/deeeeone/Anvil/main/docs/anvil-provider.schema.json",
+  "spec": 1,
+  "id": "kimi-web",
+  "name": "Kimi Chat (on device)",
+  "description": "Kimi models from kimi.ai through kimi2api running on this Mac, with your account session.",
+  "symbol": "k.circle",
+  "homepage": "https://github.com/deeeeone/anvil-provider-kimi",
+  "type": "openai",
+  "baseURL": "http://127.0.0.1:37991/v1",
+  "server": {
+    "setup": ["sh", "setup.sh"],
+    "command": ["sh", "start.sh"],
+    "env": { "PORT": "37991" },
+    "ready": "http://127.0.0.1:37991/healthz",
+    "startupTimeout": 120
+  },
+  "auth": {
+    "type": "web",
+    "loginURL": "https://www.kimi.ai/",
+    "domain": "kimi.ai",
+    "localStorage": ["access_token"],
+    "manual": true
+  },
+  "models": [
+    { "id": "kimi-k2.5", "context": 256000 },
+    { "id": "kimi-2.6-fast", "context": 256000 },
+    { "id": "kimi-2.6-thinking", "context": 256000 }
+  ],
+  "capabilities": { "stop": false, "streamUsage": false },
+  "free": true
+}
