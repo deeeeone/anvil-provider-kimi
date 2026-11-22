@@ -26,11 +26,13 @@ Your prompts go from Anvil to the local proxy, and from there to kimi.ai. `start
 
 Models offered: `kimi-k2.5`, `kimi-2.6-fast` and `kimi-2.6-thinking`. More arrive from the proxy's live list.
 
+Kimi access tokens last 15 minutes. The plugin also captures the `refresh_token` and renews the access token before it expires, so a signed-in session keeps working until the refresh token itself is revoked.
+
 ## Good to know
 
 - This is Kimi's website through an unofficial proxy, not Moonshot's paid API. It can break when the site changes, and it may go against Kimi's terms. Use an account you are prepared to risk.
 - Kimi auth is an `access_token` in the site's localStorage, not the marketing page's cookies. Sign in through the provider row, or paste a session that contains it.
-- Tokens expire. When requests start returning `unauthorized`, sign in again and the server restarts with the new token.
+- If the refresh token itself expires, requests return `unauthorized`: sign in again and the server restarts with the new session.
 - kimi2api has no license file; the plugin downloads it instead of copying it. The plugin's own files are MIT.
 
 ## License

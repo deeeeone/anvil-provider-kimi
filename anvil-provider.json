@@ -9,9 +9,17 @@
   "type": "openai",
   "baseURL": "http://127.0.0.1:37991/v1",
   "server": {
-    "setup": ["sh", "setup.sh"],
-    "command": ["sh", "start.sh"],
-    "env": { "PORT": "37991" },
+    "setup": [
+      "sh",
+      "setup.sh"
+    ],
+    "command": [
+      "sh",
+      "start.sh"
+    ],
+    "env": {
+      "PORT": "37991"
+    },
     "ready": "http://127.0.0.1:37991/healthz",
     "startupTimeout": 120
   },
@@ -19,14 +27,29 @@
     "type": "web",
     "loginURL": "https://www.kimi.ai/",
     "domain": "kimi.ai",
-    "localStorage": ["access_token"],
+    "localStorage": [
+      "access_token",
+      "refresh_token"
+    ],
     "manual": true
   },
   "models": [
-    { "id": "kimi-k2.5", "context": 256000 },
-    { "id": "kimi-2.6-fast", "context": 256000 },
-    { "id": "kimi-2.6-thinking", "context": 256000 }
+    {
+      "id": "kimi-k2.5",
+      "context": 256000
+    },
+    {
+      "id": "kimi-2.6-fast",
+      "context": 256000
+    },
+    {
+      "id": "kimi-2.6-thinking",
+      "context": 256000
+    }
   ],
-  "capabilities": { "stop": false, "streamUsage": false },
+  "capabilities": {
+    "stop": false,
+    "streamUsage": false
+  },
   "free": true
 }
